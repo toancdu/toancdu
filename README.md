@@ -1,46 +1,8 @@
-## Hi there 👋
-
+## Time is limit, so try your best! 👋
+@2024 toancdu
 <!--
-**toancdu/toancdu** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+**toancdu/toancdu** is a ✨ truth person ✨ allway welcome you!
 
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
+##### I'm here to wait you.
+- 👯 I’m looking to collaborate on, so connect to me anytime!
 -->
-const axios = require("axios");
-const fs = require("fs");
-
-const getQuote = async () => {
-  try {
-    const { data } = await axios.get("https://quotes.rest/qod?language=en&quot;);
-    const quote = data.contents.quotes[0].quote;
-    const author = data.contents.quotes[0].author;
-
-    console.log("new quote", `"${quote}"`);
-
-    return {
-      quote,
-      author,
-    };
-  } catch (err) {
-    console.error(err.message);
-    return {};
-  }
-};
-
-const generate = async () => {
-  const { quote, author } = await getQuote();
-
-  if (!quote) return;
-
-  fs.writeFileSync("README.md", `_**${quote}**_\n\n${author}`);
-};
-
-generate();
